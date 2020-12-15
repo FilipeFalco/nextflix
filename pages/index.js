@@ -1,14 +1,24 @@
-import Nav from '../components/nav'
+import Nav from "../components/nav";
+import { signIn, signOut, useSession } from "next-auth/client";
 
 export default function IndexPage() {
+  const [session, loading] = useSession();
+
   return (
     <div>
       <Nav />
-      <div className="py-20">
-        <h1 className="text-5xl text-center text-gray-700 dark:text-gray-100">
-          Next.js + Tailwind CSS 2.0
-        </h1>
-      </div>
+        {!session && (
+          <div className="text-3xl">
+            Not signed in <br />
+            <button onClick={() => signIn('auth0')}>Sign in</button>
+          </div >
+        )}
+        {session && (
+          <div className="text-3xl">
+            Signed in as {session.user.email} <br />
+            <button onClick={() => signOut}>Sign out</button>
+          </div>
+        )}
     </div>
-  )
+  );
 }
