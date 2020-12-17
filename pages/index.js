@@ -1,5 +1,6 @@
-import Nav from "../components/nav";
 import { signIn, signOut, useSession } from "next-auth/client";
+
+import Nav from "../components/nav";
 
 export default function IndexPage() {
   const [session, loading] = useSession();
@@ -9,14 +10,15 @@ export default function IndexPage() {
       <Nav />
         {!session && (
           <div className="text-3xl">
+            Bem-Vindo a Nexflix
             Not signed in <br />
-            <button onClick={() => signIn('auth0')}>Sign in</button>
+            <button onClick={() => signIn('auth0')}>Login</button>
           </div >
         )}
         {session && (
           <div className="text-3xl">
             Signed in as {session.user.email} <br />
-            <button onClick={() => signOut}>Sign out</button>
+            <button onClick={() => signOut('auth0')}>Sair</button>
           </div>
         )}
     </div>

@@ -7,12 +7,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "mongodb": "^3.6.3",
     "moviedb-promise": "^3.1.2",
     "next": "latest",
     "next-auth": "^3.1.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "swr": "^0.3.9"
   },
   "devDependencies": {
     "@types/mongodb": "^3.6.3",
