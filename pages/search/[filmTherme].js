@@ -11,9 +11,11 @@ export default function filmeTherme(props) {
 }
 
 export async function getServerSideProps (context) {
-  let pesquisa = JSON.stringify(context)
+  const pesquisa = context.query.filmTherme
 
   const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIEDB_KEY}&language=pt-BR&query=${pesquisa}&page=1&include_adult=false`)
+
+  console.log(res.data)
   
   return {
     props: res.data

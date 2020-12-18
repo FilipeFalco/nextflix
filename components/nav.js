@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Nav() {
   return (
     <nav>
-      <ul className="container flex items-center justify-between p-8">
+      <ul className="flex items-center justify-between p-8">
         <li>
           <Link href="/">
             <a className="text-red-700 no-underline">
