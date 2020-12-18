@@ -1,6 +1,6 @@
-import { NextPage } from "next"
 import useSWR from 'swr'
 import { signIn, signOut, useSession } from "next-auth/client"
+
 
 import Nav from "../components/nav";
 import apiUser from "../components/nav";
@@ -30,7 +30,7 @@ const ProfilePage = () => {
           <h1>{data.date_birth}</h1>
         </>
       )}
-      {error && <h1>O usuário com email {session.user.email} não existe</h1>}
+      {session && error && <h1>O usuário com email {session.user.email} não existe</h1>}
     </div>
   );
 };
