@@ -9,7 +9,7 @@ import Nav from '../../components/nav';
 
 const SearchPage= () => {
   const [textInput, setTextInput] = useState('');
-
+  const [data, setData] = useState('');
   const { data, error } = useSWR(
     textInput !== '' ? `/api/search/${textInput}` : null,
     api
@@ -41,7 +41,7 @@ const SearchPage= () => {
         </form>
         {data &&
           data.data.map((film) => (
-            <Link href={`/search/${film._id}`} key={film._id}>
+            <Link href={`/search/${film.id}`} key={film.id}>
               <a>
                 <h1 className="text-2xl border-2 border-box w-1/2 m-auto mt-4 py-2">
                   {film.name}

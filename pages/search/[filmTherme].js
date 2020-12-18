@@ -1,18 +1,21 @@
 import axios from "axios";
-import { MovieDb } from "moviedb-promise";
 
-export default function filmeTherme() {
-  return <h1 className="text-3xl">Filme X</h1>;
+export default function filmeTherme(props) {
+  return (
+    <>
+    <h1 className="text-3xl">Filme: {props.title}</h1>
+    <h1 className="text-2xl">Descrição: {props.overview}</h1>
+    <h1 className="text-2xl">Data de lançamento: {props.release_date}</h1>
+    </>
+  );
 }
 
-export const getServerSideProps = async (context) => {
-  // conecta com o tmdb
-  const moviedb = new MovieDb(process.env.MOVIEDB_KEY);
+export async function getServerSideProps (context) {
+  let pesquisa = JSON.stringify(context)
 
-  // busca pelo termo
-  const findMovie = async (title) => {
-    const res = await moviedb.searchKeyword(title);
-
-    return res;
-  };
+  const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIEDB_KEY}&language=pt-BR&query=${pesquisa}&page=1&include_adult=false`)
+  
+  return {
+    props: res.data
+    };
 };
