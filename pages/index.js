@@ -16,7 +16,7 @@ export default function IndexPage() {
         <div className="text-center">
           <h1>Bem-vindo a NextFlix</h1>
           <h2>Faça seu 
-          <button onClick={() => signIn('auth0')}>Login</button> </h2>
+          <button className="btn-blue" onClick={() => signIn('auth0')}>Login</button> </h2>
         </div>
       )}
       {session && data &&(

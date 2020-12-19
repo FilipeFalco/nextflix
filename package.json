@@ -1,7 +1,11 @@
 {
   "name": "with-tailwindcss",
   "version": "1.0.0",
-  "browser": { "fs": false, "path": false, "os": false},
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -15,7 +19,6 @@
     "next-auth": "^3.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "request": "^2.88.2",
     "swr": "^0.3.9"
   },
   "devDependencies": {
